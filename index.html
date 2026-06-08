@@ -1,1 +1,908 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herz & Freizeitglück | Partnervermittlung & Freizeit 50+ im Saarland</title>
+  <meta name="description" content="Herz & Freizeitglück verbindet Menschen ab 50 im Saarland und der Großregion – persönliche Partnervermittlung, Single-Treffen und Freizeitveranstaltungen. Diskret, seriös und regional.">
 
+  <style>
+    :root{
+      --wine:#7b1730;
+      --wine-dark:#541021;
+      --gold:#b88a3a;
+      --gold-soft:#d8bc82;
+      --green:#173d2b;
+      --cream:#fbf7ef;
+      --paper:#fffdf8;
+      --soft:#f4efe7;
+      --text:#1f241f;
+      --muted:#646b64;
+      --line:rgba(123,23,48,.16);
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Arial,Helvetica,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:var(--paper);
+      line-height:1.6;
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    .site-header{
+      height:92px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 clamp(22px,6vw,92px);
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid #eee8df;
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      min-width:295px;
+    }
+
+    .logo-wrap img{
+      width:74px;
+      border-radius:12px;
+      background:white;
+    }
+
+    .wordmark{
+      font-family:var(--serif);
+      color:#25221d;
+      font-size:25px;
+      line-height:1.02;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+    }
+
+    .wordmark small{
+      display:block;
+      font-family:var(--sans);
+      color:var(--wine);
+      font-size:11px;
+      letter-spacing:.18em;
+      margin-top:5px;
+      font-weight:800;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:32px;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-weight:800;
+    }
+
+    nav a:hover{color:var(--wine)}
+
+    .nav-btn{
+      background:var(--wine);
+      color:white;
+      padding:14px 22px;
+      border-radius:4px;
+      box-shadow:0 14px 30px rgba(123,23,48,.20);
+    }
+
+    .hero{
+      min-height:660px;
+      display:grid;
+      grid-template-columns:1fr;
+      align-items:center;
+      padding:0 clamp(22px,6vw,92px);
+      color:white;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.76) 0%, rgba(0,0,0,.58) 42%, rgba(0,0,0,.14) 100%),
+        url("paar-spaziergang.jpg");
+      background-size:cover;
+      background-position:center 48%;
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:760px;
+      padding:82px 0;
+    }
+
+    .overline{
+      color:var(--gold-soft);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-weight:900;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-family:var(--serif);
+      font-size:clamp(46px,5.8vw,80px);
+      line-height:1.035;
+      letter-spacing:-1.8px;
+      margin:0 0 24px;
+      font-weight:500;
+    }
+
+    .hero p{
+      font-size:21px;
+      max-width:650px;
+      margin:0 0 34px;
+      color:rgba(255,255,255,.94);
+      font-weight:600;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:var(--gold);
+      color:white;
+      padding:16px 34px;
+      border-radius:4px;
+      text-transform:uppercase;
+      letter-spacing:.055em;
+      font-weight:900;
+      font-size:13px;
+      border:0;
+      cursor:pointer;
+      min-height:50px;
+    }
+
+    .btn.wine{background:var(--wine)}
+
+    .btn.outline{
+      background:transparent;
+      border:1px solid rgba(255,255,255,.55);
+      color:white;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .seal{
+      position:absolute;
+      right:clamp(22px,6vw,92px);
+      bottom:48px;
+      width:154px;
+      height:154px;
+      border-radius:50%;
+      background:var(--wine);
+      color:white;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      font-family:var(--serif);
+      font-size:21px;
+      line-height:1.25;
+      box-shadow:0 22px 48px rgba(0,0,0,.28);
+      z-index:3;
+    }
+
+    .features{
+      background:white;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      padding:38px clamp(22px,6vw,92px);
+      border-bottom:1px solid #eee8df;
+    }
+
+    .feature{
+      text-align:center;
+      padding:12px 28px;
+      border-right:1px solid var(--line);
+    }
+
+    .feature:last-child{border-right:0}
+
+    .feature h3{
+      color:var(--wine);
+      margin:0 0 8px;
+      font-size:16px;
+    }
+
+    .feature p{
+      margin:0;
+      font-size:14px;
+      color:#4d524d;
+    }
+
+    section{
+      padding:76px clamp(22px,6vw,92px);
+    }
+
+    .section-label{
+      color:var(--gold);
+      text-transform:uppercase;
+      letter-spacing:.22em;
+      font-size:13px;
+      font-weight:900;
+      margin-bottom:15px;
+    }
+
+    h2{
+      font-family:var(--serif);
+      color:var(--wine);
+      font-size:clamp(34px,3.7vw,56px);
+      line-height:1.1;
+      font-weight:500;
+      letter-spacing:-.8px;
+      margin:0 0 22px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      gap:0;
+      padding-top:0;
+      padding-bottom:0;
+      background:var(--paper);
+    }
+
+    .about-text{
+      padding:82px 8% 82px 0;
+      align-self:center;
+    }
+
+    .about-text p{
+      max-width:560px;
+      font-size:18px;
+      margin:0 0 18px;
+      color:#3b423b;
+    }
+
+    .signature{
+      display:block;
+      font-weight:900;
+      color:#20251f;
+      margin:24px 0;
+      border-left:4px solid var(--gold);
+      padding-left:18px;
+    }
+
+    .about-image img{
+      width:100%;
+      height:100%;
+      min-height:465px;
+      object-fit:cover;
+    }
+
+    .promise{
+      background:var(--soft);
+      padding-top:70px;
+      padding-bottom:72px;
+    }
+
+    .promise-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:24px;
+      max-width:1220px;
+      margin:0 auto;
+    }
+
+    .promise-card{
+      background:white;
+      border:1px solid #ede3d4;
+      padding:30px;
+      min-height:210px;
+    }
+
+    .promise-card span{
+      display:block;
+      color:var(--gold);
+      font-family:var(--serif);
+      font-size:36px;
+      margin-bottom:8px;
+    }
+
+    .promise-card h3{
+      color:var(--green);
+      font-family:var(--serif);
+      font-size:25px;
+      margin:0 0 10px;
+      font-weight:500;
+    }
+
+    .offer{
+      background:linear-gradient(180deg,#fffdf8 0%,#fbf7ef 100%);
+      text-align:center;
+      padding-top:54px;
+      padding-bottom:64px;
+    }
+
+    .decor{
+      color:var(--gold);
+      font-size:22px;
+      margin:8px 0 12px;
+      letter-spacing:.4em;
+    }
+
+    .offer-box{
+      max-width:990px;
+      margin:30px auto 0;
+      border:1px solid var(--gold);
+      display:grid;
+      grid-template-columns:1fr 1px 1fr;
+      align-items:center;
+      background:rgba(255,255,255,.78);
+    }
+
+    .offer-side{
+      padding:30px 40px;
+      text-align:left;
+      display:flex;
+      gap:22px;
+      align-items:center;
+    }
+
+    .offer-icon{
+      width:72px;
+      height:72px;
+      border:2px solid var(--wine);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      color:var(--wine);
+      font-size:36px;
+      flex:0 0 auto;
+      font-family:var(--serif);
+    }
+
+    .offer-divider{
+      height:86px;
+      background:var(--gold);
+      opacity:.72;
+    }
+
+    .offer-price{
+      padding:30px 40px;
+    }
+
+    .offer-price strong{
+      display:block;
+      color:var(--wine);
+      font-size:18px;
+      margin-bottom:4px;
+    }
+
+    .events{
+      background:white;
+      text-align:center;
+      padding-top:56px;
+    }
+
+    .event-grid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:18px;
+      margin-top:34px;
+    }
+
+    .event-card{
+      text-align:center;
+    }
+
+    .event-card img{
+      height:145px;
+      width:100%;
+      object-fit:cover;
+      border-radius:2px;
+      margin-bottom:13px;
+    }
+
+    .event-card h3{
+      font-size:16px;
+      margin:0 0 8px;
+      color:#181c19;
+    }
+
+    .event-card p{
+      margin:0;
+      font-size:14px;
+      color:#4f554f;
+    }
+
+    .events-note{
+      max-width:920px;
+      margin:34px auto 0;
+      color:#383e38;
+      font-size:16px;
+    }
+
+    .gallery-band{
+      padding-top:0;
+      background:white;
+    }
+
+    .wide-image{
+      max-width:1220px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+    }
+
+    .wide-image img{
+      height:360px;
+      width:100%;
+      object-fit:cover;
+    }
+
+    .region{
+      background:#102f23;
+      color:white;
+      text-align:center;
+    }
+
+    .region h2{color:white}
+
+    .region p{
+      max-width:760px;
+      margin:0 auto;
+      color:rgba(255,255,255,.82);
+    }
+
+    .places{
+      margin:34px auto 0;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      max-width:1000px;
+    }
+
+    .place{
+      padding:12px 18px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.20);
+      font-weight:800;
+    }
+
+    .legal{
+      background:var(--cream);
+      text-align:center;
+      padding-top:48px;
+      padding-bottom:48px;
+    }
+
+    .legal-box{
+      max-width:1000px;
+      margin:0 auto;
+      border:1px solid #e4d3b6;
+      background:#fffaf0;
+      padding:26px;
+      color:#5b4a31;
+      font-size:15px;
+    }
+
+    .cta-band{
+      background:linear-gradient(90deg,var(--wine-dark),var(--wine));
+      color:white;
+      padding:32px clamp(22px,6vw,92px);
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      gap:28px;
+      align-items:center;
+    }
+
+    .heart-line{
+      width:92px;
+      height:92px;
+      border:4px solid var(--gold);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:44px;
+      color:var(--gold);
+      font-family:var(--serif);
+    }
+
+    .cta-band h2{
+      color:white;
+      font-size:39px;
+      margin:0 0 4px;
+    }
+
+    .cta-band p{
+      margin:0;
+      color:rgba(255,255,255,.88);
+    }
+
+    .cta-band .btn{
+      background:var(--gold);
+      white-space:nowrap;
+      color:white;
+    }
+
+    .contact{
+      background:white;
+      padding-top:58px;
+      padding-bottom:64px;
+    }
+
+    .contact-inner{
+      max-width:1080px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:36px;
+      align-items:start;
+    }
+
+    .contact-card{
+      background:var(--green);
+      color:white;
+      padding:34px;
+    }
+
+    .contact-card h2{
+      color:white;
+      font-size:38px;
+    }
+
+    .contact-card p{
+      color:rgba(255,255,255,.84);
+    }
+
+    .contact-card strong{
+      display:block;
+      margin-top:18px;
+    }
+
+    form{
+      background:var(--cream);
+      border:1px solid #eee0ce;
+      padding:32px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    input,select,textarea{
+      width:100%;
+      border:1px solid #ddcfbf;
+      padding:15px;
+      font-size:15px;
+      font-family:var(--sans);
+      background:white;
+    }
+
+    textarea{
+      grid-column:1/-1;
+      min-height:128px;
+    }
+
+    .privacy{
+      grid-column:1/-1;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .form-btn{
+      grid-column:1/-1;
+      justify-self:start;
+    }
+
+    .trust{
+      text-align:center;
+      padding:28px clamp(22px,6vw,92px) 38px;
+      background:white;
+      color:#3a403a;
+    }
+
+    .trust strong{color:var(--green)}
+
+    footer{
+      background:#1d211e;
+      color:white;
+      text-align:center;
+      padding:30px clamp(22px,6vw,92px);
+      font-size:14px;
+    }
+
+    @media(max-width:1080px){
+      nav{display:none}
+      .seal{display:none}
+      .features{grid-template-columns:1fr 1fr}
+      .feature:nth-child(2){border-right:0}
+      .feature{border-bottom:1px solid var(--line)}
+      .about{grid-template-columns:1fr}
+      .about-text{padding:58px 0}
+      .promise-grid{grid-template-columns:1fr}
+      .event-grid{grid-template-columns:repeat(2,1fr)}
+      .cta-band{grid-template-columns:1fr;text-align:center}
+      .heart-line{margin:auto}
+      .offer-box{grid-template-columns:1fr}
+      .offer-divider{height:1px;width:80%;margin:auto}
+      .contact-inner{grid-template-columns:1fr}
+      .wide-image{grid-template-columns:1fr}
+    }
+
+    @media(max-width:640px){
+      .site-header{height:auto;padding:14px 5%}
+      .logo-wrap img{width:56px}
+      .wordmark{font-size:20px}
+      .hero{padding:0 5%;min-height:560px}
+      .hero p{font-size:18px}
+      .features{grid-template-columns:1fr;padding-left:5%;padding-right:5%}
+      .feature{border-right:0}
+      section{padding:56px 5%}
+      .event-grid{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      .about-image img,.wide-image img{height:300px}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="logo-wrap" href="#start">
+      <img src="logo.png" alt="Herz & Freizeitglück Logo">
+      <div class="wordmark">Herz &<br>Freizeitglück<small>Füreinander. Miteinander.</small></div>
+    </a>
+
+    <nav>
+      <a href="#start">Startseite</a>
+      <a href="#vermittlung">Partnervermittlung</a>
+      <a href="#events">Single-Treffen</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="nav-btn" href="#kontakt">Kontakt aufnehmen</a>
+    </nav>
+  </header>
+
+  <main id="start">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="overline">Füreinander. Miteinander.</div>
+        <h1>Gemeinsam statt einsam. Ihr neues Kapitel beginnt hier.</h1>
+        <p>Wir bringen Menschen ab 50 im Saarland zusammen – für Partnerschaft, Freundschaft und gemeinsame Freizeitaktivitäten.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+          <a class="btn outline" href="#angebot">Mehr erfahren</a>
+        </div>
+      </div>
+      <div class="seal">Seriös.<br>Persönlich.<br>Regional.</div>
+    </section>
+
+    <section class="features">
+      <div class="feature">
+        <h3>Persönliche Betreuung</h3>
+        <p>Wir nehmen uns Zeit für Sie und Ihre Wünsche.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Sicherheit & Diskretion</h3>
+        <p>Ihre Daten und Ihre Privatsphäre werden vertraulich behandelt.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Regionale Kontakte</h3>
+        <p>Wir verbinden Singles aus dem Saarland und Umgebung.</p>
+      </div>
+
+      <div class="feature">
+        <h3>Gemeinsame Erlebnisse</h3>
+        <p>Weil gemeinsame Interessen die besten Verbindungen schaffen.</p>
+      </div>
+    </section>
+
+    <section id="ueber-uns" class="about">
+      <div class="about-text">
+        <div class="section-label">Über Herz & Freizeitglück</div>
+        <h2>Für Menschen mit Herz und Lebensfreude</h2>
+        <p>Wir sind eine persönliche Partnervermittlung und Freizeitagentur für Menschen ab 50, die sich eine liebevolle Partnerschaft, neue Freundschaften oder gemeinsame Unternehmungen wünschen.</p>
+        <span class="signature">Wir bringen Menschen zusammen – den Rest entscheidet das Leben.</span>
+        <a class="btn wine" href="#kontakt">Unverbindlich kennenlernen</a>
+      </div>
+
+      <div class="about-image">
+        <img src="paar-parkbank.jpg" alt="Paar sitzt gemeinsam auf einer Bank in der Natur">
+      </div>
+    </section>
+
+    <section id="vermittlung" class="promise">
+      <div class="promise-grid">
+        <div class="promise-card">
+          <span>01</span>
+          <h3>Persönliches Gespräch</h3>
+          <p>Wir lernen Ihre Wünsche, Ihre Lebenssituation und Ihre Vorstellungen kennen – ohne öffentliches Profil und ohne anonyme App.</p>
+        </div>
+
+        <div class="promise-card">
+          <span>02</span>
+          <h3>Klare Vermittlungsleistung</h3>
+          <p>Sie erhalten eine transparente Betreuung mit vereinbarten Leistungen. Eine Liebe wird nicht versprochen, echte Begegnungen schon.</p>
+        </div>
+
+        <div class="promise-card">
+          <span>03</span>
+          <h3>Freizeit mit Niveau</h3>
+          <p>Gemeinsame Aktivitäten schaffen eine natürliche Atmosphäre, in der Gespräche leichter entstehen.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="angebot" class="offer">
+      <div class="section-label">Unsere Angebote</div>
+      <h2>Partnervermittlung & Freizeitmitgliedschaft</h2>
+      <div class="decor">—♡—</div>
+      <p><strong>Individuell. Persönlich. Passend zu Ihnen.</strong></p>
+
+      <div class="offer-box">
+        <div class="offer-side">
+          <div class="offer-icon">♡</div>
+          <div>Kombinieren Sie Partnersuche und gemeinsame Freizeitaktivitäten in einem persönlichen Paket.</div>
+        </div>
+
+        <div class="offer-divider"></div>
+
+        <div class="offer-price">
+          <strong>Preis auf Anfrage</strong>
+          Individuell und unverbindlich im Erstgespräch.
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="events">
+      <div class="section-label">Single- & Freizeitveranstaltungen</div>
+      <h2>Gemeinsame Zeit. Echte Erlebnisse.</h2>
+      <div class="decor">—♡—</div>
+
+      <div class="event-grid">
+        <div class="event-card">
+          <img src="paar-spaziergang.jpg" alt="Spaziergänge in der Natur">
+          <h3>Spaziergänge in der Natur</h3>
+          <p>Gemeinsam schöne Orte in der Umgebung genießen.</p>
+        </div>
+
+        <div class="event-card">
+          <img src="sonnenuntergang.jpg" alt="Ausflüge in der Region">
+          <h3>Ausflüge an den Stausee</h3>
+          <p>Entspannte Stunden am Wasser, zum Beispiel am Stausee Losheim.</p>
+        </div>
+
+        <div class="event-card">
+          <img src="toepfern.jpg" alt="Töpfern zu zweit">
+          <h3>Töpfern zu zweit</h3>
+          <p>Kreativ sein und schöne Momente miteinander erleben.</p>
+        </div>
+
+        <div class="event-card">
+          <img src="yoga.jpg" alt="Yoga und Entspannung">
+          <h3>Yoga & Entspannung</h3>
+          <p>Für Körper, Geist und Wohlbefinden – gemeinsam zur Ruhe kommen.</p>
+        </div>
+
+        <div class="event-card">
+          <img src="paar-parkbank.jpg" alt="Kennenlernen in ruhiger Atmosphäre">
+          <h3>Kulinarische Abende</h3>
+          <p>Gemeinsam genießen, essen, lachen und neue Menschen kennenlernen.</p>
+        </div>
+
+        <div class="event-card">
+          <img src="paar-spaziergang.jpg" alt="Weitere Aktivitäten">
+          <h3>Und vieles mehr ...</h3>
+          <p>Vielfältige Aktivitäten für jede Jahreszeit und jeden Geschmack.</p>
+        </div>
+      </div>
+
+      <p class="events-note">
+        Unsere Veranstaltungen bieten die Gelegenheit, in entspannter Atmosphäre neue Menschen kennenzulernen.
+        Orte und Termine werden passend zur Gruppe und Region individuell geplant.
+      </p>
+    </section>
+
+    <section class="gallery-band">
+      <div class="wide-image">
+        <img src="paar-parkbank.jpg" alt="Ruhiger Moment in der Natur">
+        <img src="toepfern.jpg" alt="Gemeinsamer Töpferkurs">
+      </div>
+    </section>
+
+    <section class="region">
+      <h2>Im Saarland und der Großregion</h2>
+      <p>Für Menschen aus der Region, die persönliche Begegnungen, gemeinsame Freizeit und eine seriöse Begleitung suchen.</p>
+
+      <div class="places">
+        <span class="place">Saarland</span>
+        <span class="place">Merzig-Wadern</span>
+        <span class="place">Saarlouis</span>
+        <span class="place">Saarbrücken</span>
+        <span class="place">St. Wendel</span>
+        <span class="place">Homburg</span>
+        <span class="place">Trier</span>
+        <span class="place">Luxemburg</span>
+        <span class="place">Großregion</span>
+      </div>
+    </section>
+
+    <section class="legal">
+      <div class="legal-box">
+        Hinweis: Herz & Freizeitglück schuldet keine erfolgreiche Partnerschaft und keine Verliebtheit.
+        Vertragsgegenstand sind die jeweils vereinbarten Dienstleistungen, zum Beispiel Betreuung,
+        Kontaktvorschläge, Veranstaltungen und Freizeitangebote.
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="heart-line">♡</div>
+      <div>
+        <h2>Bereit für ein neues Kapitel?</h2>
+        <p>Lernen Sie uns unverbindlich kennen. Wir freuen uns auf Sie.</p>
+      </div>
+      <a class="btn" href="#kontakt">Jetzt Kontakt aufnehmen</a>
+    </section>
+
+    <section id="kontakt" class="contact">
+      <div class="contact-inner">
+        <div class="contact-card">
+          <div class="section-label">Kontakt</div>
+          <h2>Unverbindliches Erstgespräch vereinbaren</h2>
+          <p>Schreiben Sie uns eine kurze Nachricht. Wir melden uns persönlich zurück und besprechen in Ruhe, ob Herz & Freizeitglück zu Ihren Wünschen passt.</p>
+          <strong>Telefon: 0681 / 000 000</strong>
+          <strong>E-Mail: kontakt@herz-freizeitglück.de</strong>
+          <strong>Region: Saarland und Großregion</strong>
+        </div>
+
+        <form>
+          <input type="text" placeholder="Ihr Name">
+          <input type="tel" placeholder="Telefonnummer">
+          <input type="email" placeholder="E-Mail-Adresse">
+
+          <select>
+            <option>Ich interessiere mich für...</option>
+            <option>Freizeit-Mitgliedschaft und Partnervermittlung</option>
+            <option>Premium-Begleitung</option>
+            <option>Single-Treffen und Freizeitveranstaltungen</option>
+            <option>Allgemeines Erstgespräch</option>
+          </select>
+
+          <textarea placeholder="Ihre Nachricht"></textarea>
+
+          <div class="privacy">
+            Mit dem Absenden erklären Sie sich einverstanden, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage verwenden.
+            Details regelt die Datenschutzerklärung.
+          </div>
+
+          <button class="btn wine form-btn" type="button">Anfrage senden</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="trust">
+      <p><strong>Diskret. Vertrauensvoll. Auf Augenhöhe.</strong><br>
+      Herz & Freizeitglück – Ihr Partner für Liebe, Freundschaft und gemeinsame Erlebnisse ab 50 im Saarland.</p>
+    </section>
+  </main>
+
+  <footer>
+    Herz & Freizeitglück · Partnervermittlung & Freizeitbegegnungen im Saarland und der Großregion<br>
+    Impressum · Datenschutz · AGB · Kontakt
+  </footer>
+</body>
+</html>
