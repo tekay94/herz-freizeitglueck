@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Herz & Freizeitglück | Partnervermittlung & Freizeit 50+ im Saarland</title>
   <meta name="description" content="Herz & Freizeitglück verbindet Menschen ab 50 im Saarland und der Großregion – persönliche Partnervermittlung, Single-Treffen und Freizeitveranstaltungen. Diskret, seriös und regional.">
+  <meta name="theme-color" content="#7b1730">
 
   <style>
     :root{
@@ -19,8 +20,9 @@
       --text:#1f241f;
       --muted:#646b64;
       --line:rgba(123,23,48,.16);
-      --serif:Georgia,"Times New Roman",serif;
-      --sans:Arial,Helvetica,sans-serif;
+      --shadow:0 28px 80px rgba(27,23,18,.16);
+      --serif:Georgia, "Times New Roman", serif;
+      --sans:Arial, Helvetica, sans-serif;
     }
 
     *{box-sizing:border-box}
@@ -31,10 +33,12 @@
       color:var(--text);
       background:var(--paper);
       line-height:1.6;
+      -webkit-font-smoothing:antialiased;
     }
 
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
+    .container{max-width:1220px;margin:0 auto}
 
     .site-header{
       height:92px;
@@ -59,6 +63,7 @@
 
     .logo-wrap img{
       width:74px;
+      height:auto;
       border-radius:12px;
       background:white;
     }
@@ -92,6 +97,7 @@
       font-weight:800;
     }
 
+    nav a{opacity:.9}
     nav a:hover{color:var(--wine)}
 
     .nav-btn{
@@ -99,6 +105,7 @@
       color:white;
       padding:14px 22px;
       border-radius:4px;
+      opacity:1;
       box-shadow:0 14px 30px rgba(123,23,48,.20);
     }
 
@@ -116,6 +123,15 @@
         url("paar-spaziergang.jpg");
       background-size:cover;
       background-position:center 48%;
+    }
+
+    .hero:after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:120px;
+      background:linear-gradient(180deg,transparent,rgba(0,0,0,.18));
+      pointer-events:none;
     }
 
     .hero-inner{
@@ -169,7 +185,6 @@
     }
 
     .btn.wine{background:var(--wine)}
-
     .btn.outline{
       background:transparent;
       border:1px solid rgba(255,255,255,.55);
@@ -180,6 +195,7 @@
       display:flex;
       gap:14px;
       flex-wrap:wrap;
+      align-items:center;
     }
 
     .seal{
@@ -217,6 +233,13 @@
 
     .feature:last-child{border-right:0}
 
+    .feature svg{
+      width:42px;
+      height:42px;
+      stroke:var(--wine);
+      margin-bottom:13px;
+    }
+
     .feature h3{
       color:var(--wine);
       margin:0 0 8px;
@@ -252,6 +275,12 @@
       margin:0 0 22px;
     }
 
+    .text-lead{
+      font-size:18px;
+      color:#3b423b;
+      max-width:660px;
+    }
+
     .about{
       display:grid;
       grid-template-columns:.92fr 1.08fr;
@@ -268,16 +297,15 @@
 
     .about-text p{
       max-width:560px;
-      font-size:18px;
+      font-size:17px;
       margin:0 0 18px;
-      color:#3b423b;
     }
 
     .signature{
       display:block;
       font-weight:900;
       color:#20251f;
-      margin:24px 0;
+      margin:24px 0 24px;
       border-left:4px solid var(--gold);
       padding-left:18px;
     }
@@ -458,12 +486,7 @@
     }
 
     .region h2{color:white}
-
-    .region p{
-      max-width:760px;
-      margin:0 auto;
-      color:rgba(255,255,255,.82);
-    }
+    .region p{max-width:760px;margin:0 auto;color:rgba(255,255,255,.82)}
 
     .places{
       margin:34px auto 0;
@@ -559,19 +582,9 @@
       padding:34px;
     }
 
-    .contact-card h2{
-      color:white;
-      font-size:38px;
-    }
-
-    .contact-card p{
-      color:rgba(255,255,255,.84);
-    }
-
-    .contact-card strong{
-      display:block;
-      margin-top:18px;
-    }
+    .contact-card h2{color:white;font-size:38px}
+    .contact-card p{color:rgba(255,255,255,.84)}
+    .contact-card strong{display:block;margin-top:18px}
 
     form{
       background:var(--cream);
@@ -591,21 +604,9 @@
       background:white;
     }
 
-    textarea{
-      grid-column:1/-1;
-      min-height:128px;
-    }
-
-    .privacy{
-      grid-column:1/-1;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    .form-btn{
-      grid-column:1/-1;
-      justify-self:start;
-    }
+    textarea{grid-column:1/-1;min-height:128px}
+    .privacy{grid-column:1/-1;color:var(--muted);font-size:13px}
+    .form-btn{grid-column:1/-1;justify-self:start}
 
     .trust{
       text-align:center;
@@ -691,21 +692,22 @@
 
     <section class="features">
       <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
         <h3>Persönliche Betreuung</h3>
         <p>Wir nehmen uns Zeit für Sie und Ihre Wünsche.</p>
       </div>
-
       <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M12 3 20 7v5c0 5-3.4 8-8 9-4.6-1-8-4-8-9V7l8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg>
         <h3>Sicherheit & Diskretion</h3>
         <p>Ihre Daten und Ihre Privatsphäre werden vertraulich behandelt.</p>
       </div>
-
       <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
         <h3>Regionale Kontakte</h3>
         <p>Wir verbinden Singles aus dem Saarland und Umgebung.</p>
       </div>
-
       <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <h3>Gemeinsame Erlebnisse</h3>
         <p>Weil gemeinsame Interessen die besten Verbindungen schaffen.</p>
       </div>
@@ -715,11 +717,10 @@
       <div class="about-text">
         <div class="section-label">Über Herz & Freizeitglück</div>
         <h2>Für Menschen mit Herz und Lebensfreude</h2>
-        <p>Wir sind eine persönliche Partnervermittlung und Freizeitagentur für Menschen ab 50, die sich eine liebevolle Partnerschaft, neue Freundschaften oder gemeinsame Unternehmungen wünschen.</p>
+        <p class="text-lead">Wir sind eine persönliche Partnervermittlung und Freizeitagentur für Menschen ab 50, die sich eine liebevolle Partnerschaft, neue Freundschaften oder gemeinsame Unternehmungen wünschen.</p>
         <span class="signature">Wir bringen Menschen zusammen – den Rest entscheidet das Leben.</span>
         <a class="btn wine" href="#kontakt">Unverbindlich kennenlernen</a>
       </div>
-
       <div class="about-image">
         <img src="paar-parkbank.jpg" alt="Paar sitzt gemeinsam auf einer Bank in der Natur">
       </div>
@@ -732,13 +733,11 @@
           <h3>Persönliches Gespräch</h3>
           <p>Wir lernen Ihre Wünsche, Ihre Lebenssituation und Ihre Vorstellungen kennen – ohne öffentliches Profil und ohne anonyme App.</p>
         </div>
-
         <div class="promise-card">
           <span>02</span>
           <h3>Klare Vermittlungsleistung</h3>
           <p>Sie erhalten eine transparente Betreuung mit vereinbarten Leistungen. Eine Liebe wird nicht versprochen, echte Begegnungen schon.</p>
         </div>
-
         <div class="promise-card">
           <span>03</span>
           <h3>Freizeit mit Niveau</h3>
@@ -758,9 +757,7 @@
           <div class="offer-icon">♡</div>
           <div>Kombinieren Sie Partnersuche und gemeinsame Freizeitaktivitäten in einem persönlichen Paket.</div>
         </div>
-
         <div class="offer-divider"></div>
-
         <div class="offer-price">
           <strong>Preis auf Anfrage</strong>
           Individuell und unverbindlich im Erstgespräch.
@@ -779,31 +776,26 @@
           <h3>Spaziergänge in der Natur</h3>
           <p>Gemeinsam schöne Orte in der Umgebung genießen.</p>
         </div>
-
         <div class="event-card">
           <img src="sonnenuntergang.jpg" alt="Ausflüge in der Region">
           <h3>Ausflüge an den Stausee</h3>
           <p>Entspannte Stunden am Wasser, zum Beispiel am Stausee Losheim.</p>
         </div>
-
         <div class="event-card">
           <img src="toepfern.jpg" alt="Töpfern zu zweit">
           <h3>Töpfern zu zweit</h3>
           <p>Kreativ sein und schöne Momente miteinander erleben.</p>
         </div>
-
         <div class="event-card">
           <img src="yoga.jpg" alt="Yoga und Entspannung">
           <h3>Yoga & Entspannung</h3>
           <p>Für Körper, Geist und Wohlbefinden – gemeinsam zur Ruhe kommen.</p>
         </div>
-
         <div class="event-card">
           <img src="paar-parkbank.jpg" alt="Kennenlernen in ruhiger Atmosphäre">
           <h3>Kulinarische Abende</h3>
           <p>Gemeinsam genießen, essen, lachen und neue Menschen kennenlernen.</p>
         </div>
-
         <div class="event-card">
           <img src="paar-spaziergang.jpg" alt="Weitere Aktivitäten">
           <h3>Und vieles mehr ...</h3>
@@ -827,7 +819,6 @@
     <section class="region">
       <h2>Im Saarland und der Großregion</h2>
       <p>Für Menschen aus der Region, die persönliche Begegnungen, gemeinsame Freizeit und eine seriöse Begleitung suchen.</p>
-
       <div class="places">
         <span class="place">Saarland</span>
         <span class="place">Merzig-Wadern</span>
@@ -873,7 +864,6 @@
           <input type="text" placeholder="Ihr Name">
           <input type="tel" placeholder="Telefonnummer">
           <input type="email" placeholder="E-Mail-Adresse">
-
           <select>
             <option>Ich interessiere mich für...</option>
             <option>Freizeit-Mitgliedschaft und Partnervermittlung</option>
@@ -881,14 +871,11 @@
             <option>Single-Treffen und Freizeitveranstaltungen</option>
             <option>Allgemeines Erstgespräch</option>
           </select>
-
           <textarea placeholder="Ihre Nachricht"></textarea>
-
           <div class="privacy">
             Mit dem Absenden erklären Sie sich einverstanden, dass wir Ihre Angaben zur Bearbeitung Ihrer Anfrage verwenden.
             Details regelt die Datenschutzerklärung.
           </div>
-
           <button class="btn wine form-btn" type="button">Anfrage senden</button>
         </form>
       </div>
